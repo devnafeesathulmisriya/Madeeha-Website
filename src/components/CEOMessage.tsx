@@ -32,7 +32,7 @@ export default function CEOMessage() {
       ref={sectionRef}
       className="section"
       style={{
-        background: "white",
+        background: "var(--bg)",
         position: "relative",
         overflow: "hidden",
       }}
@@ -80,7 +80,7 @@ export default function CEOMessage() {
               width: 360,
               height: 360,
               borderRadius: "50%",
-              border: "1px dashed rgba(201,168,76,0.2)",
+              border: "1px dashed rgba(201, 168, 76, 0.2)",
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
@@ -91,9 +91,10 @@ export default function CEOMessage() {
             <div style={{
               position: "absolute",
               inset: -16,
-              background: "linear-gradient(135deg, var(--green-100) 0%, var(--green-50) 100%)",
+              background: "var(--bg)",
               borderRadius: "50%",
-              opacity: 0.45,
+              boxShadow: "var(--shadow-neu-sunken)",
+              border: "1px solid rgba(255, 255, 255, 0.4)",
             }} />
 
             {/* Parallax photo frame */}
@@ -104,8 +105,8 @@ export default function CEOMessage() {
                 borderRadius: 32,
                 overflow: "hidden",
                 position: "relative",
-                boxShadow: "0 32px 80px rgba(30,122,74,0.22), 0 8px 24px rgba(0,0,0,0.08)",
-                border: "5px solid white",
+                boxShadow: "var(--shadow-neu-raised)",
+                border: "5px solid var(--bg)",
               }}>
                 <img
                   src="/CEO.jpeg"
@@ -126,7 +127,7 @@ export default function CEOMessage() {
               initial={{ opacity: 0, scale: 0.7, y: 20 }}
               animate={photoInView ? { opacity: 1, scale: 1, y: 0 } : {}}
               transition={{ delay: 0.5, duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
-              className="glass-card animate-float"
+              className="card animate-float"
               style={{
                 position: "absolute",
                 bottom: 24,
@@ -134,6 +135,7 @@ export default function CEOMessage() {
                 padding: "16px 20px",
                 maxWidth: 210,
                 zIndex: 10,
+                border: "1px solid rgba(255, 255, 255, 0.4)",
               }}
             >
               <div style={{ display: "flex", gap: 10, alignItems: "center", marginBottom: 8 }}>
@@ -141,13 +143,15 @@ export default function CEOMessage() {
                   width: 30,
                   height: 30,
                   borderRadius: 10,
-                  background: "var(--gradient-primary)",
+                  background: "var(--bg)",
+                  border: "1px solid rgba(255, 255, 255, 0.5)",
+                  boxShadow: "var(--shadow-neu-raised-sm)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   flexShrink: 0,
                 }}>
-                  <Heart size={14} color="white" fill="white" />
+                  <Heart size={14} color="var(--primary)" fill="var(--primary)" />
                 </div>
                 <span style={{ fontSize: 12, fontWeight: 700, color: "var(--primary)", fontFamily: "var(--font-display)", letterSpacing: 0.4 }}>
                   Our Mission
@@ -163,7 +167,7 @@ export default function CEOMessage() {
               initial={{ opacity: 0, scale: 0.7, y: -20 }}
               animate={photoInView ? { opacity: 1, scale: 1, y: 0 } : {}}
               transition={{ delay: 0.65, duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
-              className="glass-card"
+              className="card"
               style={{
                 position: "absolute",
                 top: 28,
@@ -173,18 +177,21 @@ export default function CEOMessage() {
                 alignItems: "center",
                 gap: 10,
                 zIndex: 10,
+                border: "1px solid rgba(255, 255, 255, 0.4)",
               }}
             >
               <div style={{
                 width: 32,
                 height: 32,
                 borderRadius: 10,
-                background: "linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 100%)",
+                background: "var(--bg)",
+                border: "1px solid rgba(255, 255, 255, 0.5)",
+                boxShadow: "var(--shadow-neu-raised-sm)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
               }}>
-                <Award size={16} color="white" />
+                <Award size={16} color="var(--gold-dark)" />
               </div>
               <div>
                 <div style={{ fontSize: 14, fontWeight: 800, color: "var(--text-dark)", fontFamily: "var(--font-display)", lineHeight: 1.1 }}>500+</div>
@@ -225,9 +232,10 @@ export default function CEOMessage() {
                 gap: 14,
                 marginBottom: 28,
                 padding: "16px 20px",
-                background: "linear-gradient(135deg, rgba(30,122,74,0.05) 0%, transparent 100%)",
-                borderLeft: "3px solid var(--primary)",
-                borderRadius: "0 12px 12px 0",
+                background: "var(--bg)",
+                boxShadow: "var(--shadow-neu-sunken-sm)",
+                border: "1px solid rgba(255, 255, 255, 0.4)",
+                borderRadius: "16px",
               }}
             >
               <Quote size={20} color="var(--primary)" style={{ flexShrink: 0, marginTop: 2, opacity: 0.6 }} />

@@ -54,7 +54,9 @@ function LearnCard({ topic, index }: { topic: typeof learningTopics[0]; index: n
         gap: 20,
         position: "relative",
         overflow: "hidden",
-        background: `linear-gradient(145deg, #ffffff 0%, ${topic.color} 100%)`,
+        background: "var(--bg)",
+        border: "1px solid rgba(255, 255, 255, 0.5)",
+        boxShadow: "var(--shadow-neu-raised)",
         cursor: "default",
       }}
     >
@@ -63,36 +65,24 @@ function LearnCard({ topic, index }: { topic: typeof learningTopics[0]; index: n
         <Icon size={130} />
       </div>
 
-      {/* Bottom accent bar */}
-      <div style={{
-        position: "absolute",
-        bottom: 0,
-        left: 0,
-        right: 0,
-        height: 3,
-        background: isGold ? "var(--gradient-gold)" : "var(--gradient-primary)",
-        transform: "scaleX(0)",
-        transformOrigin: "left",
-        transition: "transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)",
-      }} className="card-accent-bar" />
-
       {/* Icon */}
       <motion.div
-        whileHover={{ scale: 1.1, rotate: 5 }}
+        whileHover={{ scale: 1.08 }}
         transition={{ type: "spring", stiffness: 300, damping: 15 }}
         style={{
           width: 60,
           height: 60,
           borderRadius: "18px",
-          background: topic.iconBg,
+          background: "var(--bg)",
+          border: "1px solid rgba(255, 255, 255, 0.5)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          boxShadow: isGold ? "0 8px 24px var(--gold-glow)" : "0 8px 24px var(--primary-glow)",
+          boxShadow: "var(--shadow-neu-raised-sm)",
           flexShrink: 0,
         }}
       >
-        <Icon size={26} color="white" />
+        <Icon size={26} color={isGold ? "var(--gold-dark)" : "var(--primary)"} />
       </motion.div>
 
       {/* Text */}
@@ -111,11 +101,6 @@ function LearnCard({ topic, index }: { topic: typeof learningTopics[0]; index: n
           {topic.description}
         </p>
       </div>
-
-      {/* Hover reveal: read more hint */}
-      <style>{`
-        .learn-card-wrap:hover .card-accent-bar { transform: scaleX(1) !important; }
-      `}</style>
     </motion.div>
   );
 }
@@ -128,7 +113,7 @@ export default function WhatYouWillLearn() {
     <section
       className="section"
       id="what-you-will-learn"
-      style={{ background: "var(--green-50)", position: "relative", overflow: "hidden" }}
+      style={{ background: "var(--bg)", position: "relative", overflow: "hidden" }}
     >
       {/* Background orb */}
       <div style={{

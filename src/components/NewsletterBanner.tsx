@@ -14,7 +14,7 @@ export default function NewsletterBanner() {
   };
 
   return (
-    <section className="newsletter-section" style={{ padding: "80px 0" }}>
+    <section className="newsletter-section" style={{ padding: "80px 0", background: "var(--bg-dark)" }}>
       {/* Decorative circles */}
       <div
         style={{
@@ -24,7 +24,7 @@ export default function NewsletterBanner() {
           width: 300,
           height: 300,
           borderRadius: "50%",
-          background: "rgba(255,255,255,0.04)",
+          background: "rgba(255,255,255,0.02)",
         }}
       />
       <div
@@ -35,7 +35,7 @@ export default function NewsletterBanner() {
           width: 200,
           height: 200,
           borderRadius: "50%",
-          background: "rgba(255,255,255,0.04)",
+          background: "rgba(255,255,255,0.02)",
         }}
       />
 
@@ -45,17 +45,17 @@ export default function NewsletterBanner() {
           style={{
             width: 72,
             height: 72,
-            background: "rgba(255,255,255,0.15)",
+            background: "var(--bg-dark)",
             borderRadius: "50%",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             margin: "0 auto 24px",
-            backdropFilter: "blur(8px)",
-            border: "1px solid rgba(255,255,255,0.2)",
+            border: "1px solid rgba(255,255,255,0.05)",
+            boxShadow: "var(--shadow-dark-neu-raised)",
           }}
         >
-          <Mail size={32} color="white" />
+          <Mail size={32} color="var(--gold-light)" />
         </div>
 
         {/* Heading */}
@@ -65,8 +65,10 @@ export default function NewsletterBanner() {
             alignItems: "center",
             gap: 8,
             padding: "6px 18px",
-            background: "rgba(255,255,255,0.15)",
+            background: "var(--bg-dark)",
             borderRadius: "50px",
+            border: "1px solid rgba(255,255,255,0.05)",
+            boxShadow: "var(--shadow-dark-neu-sunken-sm)",
             color: "rgba(255,255,255,0.9)",
             fontSize: 12,
             fontFamily: "var(--font-sans)",
@@ -111,10 +113,8 @@ export default function NewsletterBanner() {
               display: "flex",
               maxWidth: 500,
               margin: "0 auto",
-              gap: 0,
-              borderRadius: "50px",
-              overflow: "hidden",
-              boxShadow: "0 8px 40px rgba(0,0,0,0.2)",
+              gap: 16,
+              alignItems: "center",
             }}
           >
             <input
@@ -124,39 +124,34 @@ export default function NewsletterBanner() {
               onChange={(e) => setMobile(e.target.value)}
               placeholder="Enter your mobile number..."
               required
+              className="input-dark-neu"
               style={{
                 flex: 1,
                 padding: "16px 24px",
-                border: "none",
-                outline: "none",
+                height: 54,
+                borderRadius: "50px",
                 fontSize: 15,
-                fontFamily: "var(--font-sans)",
-                color: "var(--text-dark)",
-                background: "white",
                 minWidth: 0,
               }}
             />
             <button
               type="submit"
               id="newsletter-submit"
+              className="btn-ghost"
               style={{
-                padding: "16px 28px",
-                background: "var(--primary-dark)",
-                color: "white",
-                border: "none",
+                padding: "0 32px",
+                height: 54,
+                borderRadius: "50px",
                 cursor: "pointer",
-                fontFamily: "var(--font-sans)",
-                fontWeight: 700,
-                fontSize: 15,
                 display: "flex",
                 alignItems: "center",
                 gap: 8,
                 whiteSpace: "nowrap",
-                transition: "all 0.2s ease",
                 flexShrink: 0,
+                border: "1px solid rgba(255, 255, 255, 0.05)",
+                color: "var(--gold-light)",
+                boxShadow: "var(--shadow-dark-neu-raised-sm)",
               }}
-              onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "#0f1f17")}
-              onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "var(--primary-dark)")}
             >
               Submit <ArrowRight size={16} />
             </button>

@@ -45,7 +45,7 @@ function SocialIcon({ type }: { type: string }) {
 
 export default function Footer() {
   return (
-    <footer id="contact" style={{ background: "#0f1f17", color: "white", position: "relative", overflow: "hidden" }}>
+    <footer id="contact" style={{ background: "var(--bg-dark)", color: "white", position: "relative", overflow: "hidden" }}>
       {/* Pattern */}
       <div
         style={{
@@ -95,22 +95,30 @@ export default function Footer() {
                     width: 38,
                     height: 38,
                     borderRadius: "50%",
-                    background: "rgba(255,255,255,0.08)",
+                    background: "var(--bg-dark)",
+                    border: "1px solid rgba(255, 255, 255, 0.05)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     transition: "all 0.2s ease",
                     color: "rgba(255,255,255,0.6)",
+                    boxShadow: "var(--shadow-dark-neu-raised-sm)",
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.background = "var(--primary)";
-                    (e.currentTarget as HTMLAnchorElement).style.color = "white";
-                    (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-3px)";
+                    (e.currentTarget as HTMLAnchorElement).style.color = "var(--gold)";
+                    (e.currentTarget as HTMLAnchorElement).style.boxShadow = "6px 6px 12px #050a06, -6px -6px 12px #163422";
+                    (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-2px)";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.08)";
                     (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.6)";
+                    (e.currentTarget as HTMLAnchorElement).style.boxShadow = "var(--shadow-dark-neu-raised-sm)";
                     (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
+                  }}
+                  onMouseDown={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.boxShadow = "var(--shadow-dark-neu-sunken-sm)";
+                  }}
+                  onMouseUp={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.boxShadow = "var(--shadow-dark-neu-raised-sm)";
                   }}
                 >
                   <SocialIcon type={icon} />

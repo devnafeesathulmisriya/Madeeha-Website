@@ -14,7 +14,7 @@ const galleryItems = [
 
 export default function Gallery() {
   return (
-    <section id="gallery" className="section" style={{ background: "white" }}>
+    <section id="gallery" className="section" style={{ background: "var(--bg)" }}>
       <div className="container">
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 56 }}>
@@ -48,68 +48,76 @@ export default function Gallery() {
               style={{
                 position: "relative",
                 height: item.height,
-                borderRadius: 20,
+                borderRadius: 24,
                 overflow: "hidden",
-                border: "1px solid var(--green-200)",
+                border: "1px solid rgba(255, 255, 255, 0.4)",
+                background: "var(--bg)",
+                boxShadow: "var(--shadow-neu-raised)",
                 cursor: "pointer",
                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                padding: 10,
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-5px)";
-                e.currentTarget.style.boxShadow = "0 20px 40px rgba(0, 0, 0, 0.08)";
+                e.currentTarget.style.transform = "translateY(-4px)";
+                e.currentTarget.style.boxShadow = "12px 12px 24px #cbd5cf, -12px -12px 24px #ffffff";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "none";
+                e.currentTarget.style.boxShadow = "var(--shadow-neu-raised)";
               }}
             >
-              {/* Image/Video */}
-              {item.type === "video" ? (
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    zIndex: 0
-                  }}
-                >
-                  <source src={item.media} type="video/mp4" />
-                </video>
-              ) : (
-                <img
-                  src={item.media}
-                  alt={item.title}
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    zIndex: 0
-                  }}
-                />
-              )}
+              {/* Inner wrapper for image */}
+              <div style={{ position: "relative", width: "100%", height: "100%", borderRadius: 16, overflow: "hidden" }}>
+                {/* Image/Video */}
+                {item.type === "video" ? (
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      zIndex: 0
+                    }}
+                  >
+                    <source src={item.media} type="video/mp4" />
+                  </video>
+                ) : (
+                  <img
+                    src={item.media}
+                    alt={item.title}
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      zIndex: 0
+                    }}
+                  />
+                )}
+              </div>
 
               <div
                 style={{
                   position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
+                  bottom: 10,
+                  left: 10,
+                  right: 10,
                   padding: "40px 20px 20px",
-                  background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%)",
+                  background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%)",
                   color: "white",
                   fontFamily: "var(--font-sans)",
                   fontWeight: 600,
                   zIndex: 2,
                   opacity: 0,
                   transition: "opacity 0.3s ease",
+                  borderBottomLeftRadius: 16,
+                  borderBottomRightRadius: 16,
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
                 onMouseLeave={(e) => (e.currentTarget.style.opacity = "0")}

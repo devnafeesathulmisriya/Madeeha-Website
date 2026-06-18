@@ -42,11 +42,10 @@ function StatCard({ stat, start, index }: { stat: typeof stats[0]; start: boolea
       style={{
         textAlign: "center",
         padding: "44px 28px",
-        background: "rgba(255,255,255,0.04)",
-        backdropFilter: "blur(16px)",
+        background: "var(--bg-dark)",
         borderRadius: 28,
-        border: "1px solid rgba(255,255,255,0.08)",
-        boxShadow: "0 8px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.06)",
+        border: "1px solid rgba(255, 255, 255, 0.05)",
+        boxShadow: "var(--shadow-dark-neu-raised)",
         position: "relative",
         overflow: "hidden",
         cursor: "default",
@@ -71,26 +70,23 @@ function StatCard({ stat, start, index }: { stat: typeof stats[0]; start: boolea
 
       {/* Icon */}
       <motion.div
-        whileHover={{ scale: 1.15, rotate: 8 }}
+        whileHover={{ scale: 1.08 }}
         transition={{ type: "spring", stiffness: 300, damping: 15 }}
         style={{
           width: 68,
           height: 68,
-          background: index % 2 === 0
-            ? "var(--gradient-primary)"
-            : "var(--gradient-gold)",
+          background: "var(--bg-dark)",
+          border: "1px solid rgba(255, 255, 255, 0.05)",
           borderRadius: 22,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           margin: "0 auto 24px",
-          boxShadow: index % 2 === 0
-            ? "0 8px 24px var(--primary-glow)"
-            : "0 8px 24px var(--gold-glow)",
+          boxShadow: "var(--shadow-dark-neu-raised-sm)",
           position: "relative",
         }}
       >
-        <Icon size={30} color="white" />
+        <Icon size={30} color={index % 2 === 0 ? "var(--primary-light)" : "var(--gold)"} />
       </motion.div>
 
       {/* Number */}
@@ -144,7 +140,7 @@ export default function AnimatedStats() {
       id="stats"
       style={{
         padding: "100px 0",
-        background: "linear-gradient(160deg, var(--bg-dark) 0%, var(--bg-dark-2) 40%, var(--bg-dark-3) 100%)",
+        background: "var(--bg-dark)",
         position: "relative",
         overflow: "hidden",
       }}

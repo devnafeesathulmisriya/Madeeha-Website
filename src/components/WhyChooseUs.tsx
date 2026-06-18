@@ -96,7 +96,7 @@ export default function WhyChooseUs() {
       id="why-us"
       ref={sectionRef}
       className="section"
-      style={{ background: "white", paddingTop: 60, paddingBottom: 80, overflow: "hidden", position: "relative" }}
+      style={{ background: "var(--bg)", paddingTop: 60, paddingBottom: 80, overflow: "hidden", position: "relative" }}
     >
       {/* Ambient background */}
       <div style={{
@@ -307,10 +307,8 @@ export default function WhyChooseUs() {
             height: 480px;
             border-radius: 32px;
             overflow: hidden;
-            box-shadow: 0 32px 80px -15px rgba(6, 15, 9, 0.28),
-                        0 0 50px rgba(30, 122, 74, 0.06),
-                        inset 0 1px 0 rgba(255,255,255,0.1);
-            border: 1px solid var(--border-gold);
+            box-shadow: var(--shadow-dark-neu-raised);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             background: var(--bg-dark);
             z-index: 10;
           }
@@ -419,28 +417,27 @@ export default function WhyChooseUs() {
             align-items: center;
             gap: 20px;
             padding: 20px 26px;
-            background: #ffffff;
-            border: 1px solid rgba(30, 122, 74, 0.06);
+            background: var(--bg);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 22px;
             cursor: pointer;
-            transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+            box-shadow: var(--shadow-neu-raised-sm);
             text-align: left;
             outline: none;
           }
 
           .feature-premium-card:hover {
-            box-shadow: 0 12px 32px rgba(30, 122, 74, 0.08);
-            border-color: rgba(30, 122, 74, 0.14);
-            background: linear-gradient(135deg, rgba(30,122,74,0.01) 0%, #ffffff 100%);
+            box-shadow: 6px 6px 12px #cbd5cf, -6px -6px 12px #ffffff;
+            transform: translateY(-2px);
           }
 
           .feature-premium-card.active {
-            background: linear-gradient(100deg, rgba(30, 122, 74, 0.03) 0%, #ffffff 100%);
-            border-color: var(--primary);
-            box-shadow: 0 12px 32px rgba(30, 122, 74, 0.1), 0 0 0 1px rgba(30,122,74,0.08);
+            background: var(--bg);
+            border-color: rgba(30, 122, 74, 0.15);
+            box-shadow: var(--shadow-neu-sunken-sm);
           }
 
           .feature-premium-card:focus-visible {
@@ -452,14 +449,9 @@ export default function WhyChooseUs() {
             content: '';
             position: absolute;
             left: 0; top: 0; bottom: 0;
-            width: 4px;
-            background: var(--gradient-primary);
+            width: 0;
+            background: none;
             opacity: 0;
-            transition: opacity 0.3s ease;
-          }
-
-          .feature-premium-card.active::before {
-            opacity: 1;
           }
 
           .feature-premium-icon-box {
@@ -470,22 +462,22 @@ export default function WhyChooseUs() {
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, rgba(30, 122, 74, 0.06) 0%, rgba(30, 122, 74, 0.02) 100%);
-            border: 1px solid rgba(30, 122, 74, 0.1);
+            background: var(--bg);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: var(--shadow-neu-raised-sm);
             color: var(--primary);
             transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
           }
 
           .feature-premium-card.active .feature-premium-icon-box {
-            background: var(--gradient-primary);
-            border-color: var(--primary);
-            color: #ffffff;
-            box-shadow: 0 8px 20px var(--primary-glow);
+            background: var(--bg);
+            border-color: rgba(30, 122, 74, 0.2);
+            color: var(--primary);
+            box-shadow: var(--shadow-neu-sunken-sm);
           }
 
           .feature-premium-card:hover:not(.active) .feature-premium-icon-box {
-            background: linear-gradient(135deg, rgba(30, 122, 74, 0.1) 0%, rgba(30, 122, 74, 0.04) 100%);
-            border-color: rgba(30, 122, 74, 0.15);
+            box-shadow: 6px 6px 10px #cbd5cf, -6px -6px 10px #ffffff;
           }
 
           .feature-premium-content { flex-grow: 1; }

@@ -25,14 +25,15 @@ export default function LoginModal({ onClose }: LoginModalProps) {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-box" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-box" onClick={(e) => e.stopPropagation()} style={{ background: "var(--bg)", boxShadow: "var(--shadow-neu-raised)", border: "1px solid rgba(255, 255, 255, 0.5)" }}>
         {/* Header */}
         <div
           style={{
-            background: "linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%)",
+            background: "var(--bg)",
             padding: "28px 28px 24px",
             position: "relative",
             textAlign: "center",
+            borderBottom: "1px solid rgba(255, 255, 255, 0.4)",
           }}
         >
           {/* Decorative */}
@@ -40,7 +41,7 @@ export default function LoginModal({ onClose }: LoginModalProps) {
             style={{
               fontFamily: "Amiri, serif",
               fontSize: 16,
-              color: "rgba(255,255,255,0.5)",
+              color: "var(--text-muted)",
               letterSpacing: 2,
               marginBottom: 12,
             }}
@@ -51,29 +52,30 @@ export default function LoginModal({ onClose }: LoginModalProps) {
             style={{
               width: 68,
               height: 68,
-              background: "rgba(255,255,255,0.15)",
+              background: "var(--bg)",
+              border: "1px solid rgba(255, 255, 255, 0.5)",
               borderRadius: "50%",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               margin: "0 auto 16px",
-              backdropFilter: "blur(8px)",
+              boxShadow: "var(--shadow-neu-raised-sm)",
             }}
           >
-            <User size={30} color="white" />
+            <User size={30} color="var(--primary)" />
           </div>
           <h2
             style={{
               fontFamily: "Playfair Display, serif",
               fontSize: 24,
               fontWeight: 700,
-              color: "white",
+              color: "var(--text-dark)",
               marginBottom: 4,
             }}
           >
             {mode === "login" ? "Student Login" : "Reset Password"}
           </h2>
-          <p style={{ fontSize: 13, color: "rgba(255,255,255,0.7)", fontFamily: "Inter, sans-serif" }}>
+          <p style={{ fontSize: 13, color: "var(--text-muted)", fontFamily: "Inter, sans-serif" }}>
             {mode === "login" ? "Welcome back to Madeeha Academy" : "We'll send you a reset link"}
           </p>
 
@@ -85,8 +87,8 @@ export default function LoginModal({ onClose }: LoginModalProps) {
               position: "absolute",
               top: 16,
               right: 16,
-              background: "rgba(255,255,255,0.15)",
-              border: "none",
+              background: "var(--bg)",
+              border: "1px solid rgba(255, 255, 255, 0.5)",
               borderRadius: "50%",
               width: 34,
               height: 34,
@@ -94,7 +96,8 @@ export default function LoginModal({ onClose }: LoginModalProps) {
               alignItems: "center",
               justifyContent: "center",
               cursor: "pointer",
-              color: "white",
+              color: "var(--text-dark)",
+              boxShadow: "var(--shadow-neu-raised-sm)",
               transition: "all 0.2s",
             }}
           >
@@ -277,8 +280,9 @@ export default function LoginModal({ onClose }: LoginModalProps) {
                 <>
                   <div
                     style={{
-                      background: "var(--green-50)",
-                      border: "1px solid var(--green-200)",
+                      background: "var(--bg)",
+                      border: "1px solid rgba(255, 255, 255, 0.4)",
+                      boxShadow: "var(--shadow-neu-sunken-sm)",
                       borderRadius: 12,
                       padding: "12px 16px",
                       marginBottom: 20,

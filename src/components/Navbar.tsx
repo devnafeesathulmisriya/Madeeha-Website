@@ -54,15 +54,15 @@ export default function Navbar({ onLoginClick }: NavbarProps) {
           right: 0,
           zIndex: 500,
           background: scrolled
-            ? "rgba(255, 255, 255, 0.82)"
-            : "rgba(255, 255, 255, 0.6)",
+            ? "rgba(235, 243, 239, 0.85)"
+            : "rgba(235, 243, 239, 0.65)",
           backdropFilter: "blur(28px) saturate(180%)",
           WebkitBackdropFilter: "blur(28px) saturate(180%)",
           borderBottom: scrolled
-            ? "1px solid rgba(30, 122, 74, 0.12)"
-            : "1px solid rgba(255, 255, 255, 0.4)",
+            ? "1px solid rgba(30, 122, 74, 0.08)"
+            : "1px solid rgba(255, 255, 255, 0.3)",
           boxShadow: scrolled
-            ? "0 8px 40px rgba(30, 122, 74, 0.08), 0 1px 0 rgba(255,255,255,0.8)"
+            ? "0 4px 20px rgba(30, 122, 74, 0.05)"
             : "none",
           transition: "background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease",
         }}
@@ -125,17 +125,18 @@ export default function Navbar({ onLoginClick }: NavbarProps) {
                 <motion.button
                   id="search-btn"
                   onClick={() => setSearchOpen(!searchOpen)}
-                  whileHover={{ scale: 1.1 }}
+                  whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   style={{
-                    background: "none",
-                    border: "none",
+                    background: "var(--bg)",
+                    border: "1px solid rgba(255, 255, 255, 0.5)",
                     cursor: "pointer",
                     color: "var(--text-muted)",
                     padding: 9,
                     borderRadius: 10,
                     display: "flex",
-                    transition: "color 0.2s",
+                    transition: "all 0.2s",
+                    boxShadow: searchOpen ? "var(--shadow-neu-sunken-sm)" : "var(--shadow-neu-raised-sm)",
                   }}
                   aria-label="Search"
                 >
@@ -153,10 +154,10 @@ export default function Navbar({ onLoginClick }: NavbarProps) {
                         position: "absolute",
                         right: 0,
                         top: "calc(100% + 10px)",
-                        background: "white",
+                        background: "var(--bg)",
                         borderRadius: 16,
-                        boxShadow: "0 20px 60px rgba(0,0,0,0.14)",
-                        border: "1px solid var(--border)",
+                        boxShadow: "var(--shadow-neu-raised)",
+                        border: "1px solid rgba(255, 255, 255, 0.5)",
                         padding: 14,
                         width: 280,
                         zIndex: 300,
@@ -226,9 +227,10 @@ export default function Navbar({ onLoginClick }: NavbarProps) {
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.35, ease: [0.25, 0.8, 0.25, 1] }}
               style={{
-                background: "rgba(255,255,255,0.96)",
+                background: "rgba(235, 243, 239, 0.96)",
                 backdropFilter: "blur(24px)",
-                borderTop: "1px solid var(--border)",
+                borderTop: "1px solid rgba(255, 255, 255, 0.5)",
+                boxShadow: "0 8px 32px rgba(0, 0, 0, 0.05)",
                 overflow: "hidden",
               }}
             >

@@ -127,7 +127,7 @@ export default function Testimonials() {
     <section
       id="testimonials"
       className="section"
-      style={{ background: "var(--bg-subtle)", position: "relative", overflow: "hidden" }}
+      style={{ background: "var(--bg)", position: "relative", overflow: "hidden" }}
     >
       {/* Decorative */}
       <div
@@ -138,7 +138,7 @@ export default function Testimonials() {
           width: 300,
           height: 300,
           borderRadius: "50%",
-          background: "var(--green-100)",
+          background: "rgba(30, 122, 74, 0.05)",
           opacity: 0.5,
         }}
       />
@@ -150,7 +150,7 @@ export default function Testimonials() {
           width: 400,
           height: 400,
           borderRadius: "50%",
-          background: "var(--green-50)",
+          background: "rgba(30, 122, 74, 0.04)",
           opacity: 0.8,
         }}
       />
@@ -191,8 +191,9 @@ export default function Testimonials() {
                 width: 48,
                 height: 48,
                 borderRadius: "50%",
-                border: "2px solid var(--green-200)",
-                background: "white",
+                border: "1px solid rgba(255, 255, 255, 0.5)",
+                background: "var(--bg)",
+                boxShadow: "var(--shadow-neu-raised-sm)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -201,14 +202,18 @@ export default function Testimonials() {
                 color: "var(--primary)",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLButtonElement).style.background = "var(--primary)";
-                (e.currentTarget as HTMLButtonElement).style.color = "white";
-                (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--primary)";
+                (e.currentTarget as HTMLButtonElement).style.color = "var(--primary-light)";
+                (e.currentTarget as HTMLButtonElement).style.boxShadow = "6px 6px 12px #cbd5cf, -6px -6px 12px #ffffff";
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLButtonElement).style.background = "white";
                 (e.currentTarget as HTMLButtonElement).style.color = "var(--primary)";
-                (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--green-200)";
+                (e.currentTarget as HTMLButtonElement).style.boxShadow = "var(--shadow-neu-raised-sm)";
+              }}
+              onMouseDown={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.boxShadow = "var(--shadow-neu-sunken-sm)";
+              }}
+              onMouseUp={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.boxShadow = "var(--shadow-neu-raised-sm)";
               }}
             >
               <ChevronLeft size={20} />
@@ -220,8 +225,9 @@ export default function Testimonials() {
                 width: 48,
                 height: 48,
                 borderRadius: "50%",
-                border: "2px solid var(--green-200)",
-                background: "white",
+                border: "1px solid rgba(255, 255, 255, 0.5)",
+                background: "var(--bg)",
+                boxShadow: "var(--shadow-neu-raised-sm)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -230,14 +236,18 @@ export default function Testimonials() {
                 color: "var(--primary)",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLButtonElement).style.background = "var(--primary)";
-                (e.currentTarget as HTMLButtonElement).style.color = "white";
-                (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--primary)";
+                (e.currentTarget as HTMLButtonElement).style.color = "var(--primary-light)";
+                (e.currentTarget as HTMLButtonElement).style.boxShadow = "6px 6px 12px #cbd5cf, -6px -6px 12px #ffffff";
               }}
               onMouseLeave={(e) => {
-                (e.currentTarget as HTMLButtonElement).style.background = "white";
                 (e.currentTarget as HTMLButtonElement).style.color = "var(--primary)";
-                (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--green-200)";
+                (e.currentTarget as HTMLButtonElement).style.boxShadow = "var(--shadow-neu-raised-sm)";
+              }}
+              onMouseDown={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.boxShadow = "var(--shadow-neu-sunken-sm)";
+              }}
+              onMouseUp={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.boxShadow = "var(--shadow-neu-raised-sm)";
               }}
             >
               <ChevronRight size={20} />
@@ -363,11 +373,12 @@ export default function Testimonials() {
               key={i}
               onClick={() => setCurrent(i)}
               style={{
-                width: i === current ? 28 : 10,
-                height: 10,
+                width: i === current ? 24 : 12,
+                height: 12,
                 borderRadius: "50px",
-                border: "none",
-                background: i === current ? "var(--primary)" : "var(--green-200)",
+                border: "1px solid rgba(255, 255, 255, 0.4)",
+                background: "var(--bg)",
+                boxShadow: i === current ? "var(--shadow-neu-sunken-sm)" : "var(--shadow-neu-raised-sm)",
                 cursor: "pointer",
                 transition: "all 0.3s ease",
                 padding: 0,

@@ -48,7 +48,7 @@ function FloatingBadge({
       initial={{ opacity: 0, scale: 0.7, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ delay: delay ?? 0.8, duration: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
-      className="animate-float-slow glass-card"
+      className="animate-float-slow card"
       style={{
         position: "absolute",
         padding: "12px 18px",
@@ -63,14 +63,15 @@ function FloatingBadge({
         width: 38,
         height: 38,
         borderRadius: 12,
-        background: "var(--gradient-primary)",
+        background: "var(--bg)",
+        border: "1px solid rgba(255, 255, 255, 0.5)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         flexShrink: 0,
-        boxShadow: "0 6px 16px var(--primary-glow)",
+        boxShadow: "var(--shadow-neu-raised-sm)",
       }}>
-        <Icon size={18} color="white" />
+        <Icon size={18} color="var(--primary)" />
       </div>
       <div>
         <div style={{ fontSize: 18, fontWeight: 800, color: "var(--text-dark)", fontFamily: "var(--font-display)", lineHeight: 1.1 }}>
@@ -115,7 +116,7 @@ export default function HeroSection() {
         display: "flex",
         alignItems: "center",
         overflow: "hidden",
-        background: "linear-gradient(145deg, #f0fdf8 0%, #ffffff 45%, #f0fdf4 100%)",
+        background: "var(--bg)",
         paddingBottom: 60,
         paddingTop: 20,
       }}
@@ -300,20 +301,20 @@ export default function HeroSection() {
                 onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-dark)")}
               >
                 <motion.div
-                  whileHover={{ scale: 1.12, boxShadow: "0 12px 32px rgba(30,122,74,0.2)" }}
+                  whileHover={{ scale: 1.08 }}
                   style={{
                     width: 48,
                     height: 48,
                     borderRadius: "50%",
-                    background: "white",
-                    border: "1px solid var(--border)",
-                    boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
+                    background: "var(--bg)",
+                    border: "1px solid rgba(255, 255, 255, 0.5)",
+                    boxShadow: "var(--shadow-neu-raised-sm)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     color: "var(--primary)",
                     flexShrink: 0,
-                    transition: "box-shadow 0.3s",
+                    transition: "all 0.3s",
                   }}
                 >
                   <Play size={18} fill="currentColor" style={{ marginLeft: 3 }} />
@@ -347,6 +348,24 @@ export default function HeroSection() {
               left: "15%",
               filter: "blur(30px)",
             }} />
+
+            {/* Decorative Circle Shape behind image */}
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
+              style={{
+                position: "absolute",
+                width: "85%",
+                aspectRatio: "1/1",
+                background: "var(--bg)",
+                borderRadius: "50%",
+                bottom: "5%",
+                zIndex: 1,
+                boxShadow: "var(--shadow-neu-sunken)",
+                border: "4px solid rgba(255, 255, 255, 0.4)",
+              }}
+            />
 
             {/* Hero image */}
             <motion.div

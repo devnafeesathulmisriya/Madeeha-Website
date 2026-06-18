@@ -68,13 +68,14 @@ export default function ChatbotWidget() {
     <div className="chatbot-widget">
       {/* Chat Panel */}
       {open && (
-        <div className="chatbot-panel animate-slide-in-right">
+        <div className="chatbot-panel animate-slide-in-right" style={{ background: "var(--bg)", boxShadow: "var(--shadow-neu-raised)", border: "1px solid rgba(255, 255, 255, 0.5)", borderRadius: 24 }}>
           {/* Header */}
           <div
             style={{
-              background: "linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%)",
+              background: "var(--bg)",
               padding: "20px 20px 16px",
-              color: "white",
+              color: "var(--text-dark)",
+              borderBottom: "1px solid rgba(255, 255, 255, 0.4)",
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 12 }}>
@@ -90,7 +91,7 @@ export default function ChatbotWidget() {
               </div>
               <button
                 onClick={() => setOpen(false)}
-                style={{ background: "rgba(255,255,255,0.15)", border: "none", borderRadius: "50%", width: 32, height: 32, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "white" }}
+                style={{ background: "var(--bg)", border: "1px solid rgba(255, 255, 255, 0.5)", borderRadius: "50%", width: 32, height: 32, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "var(--text-dark)", boxShadow: "var(--shadow-neu-raised-sm)" }}
               >
                 <X size={16} />
               </button>
@@ -98,7 +99,7 @@ export default function ChatbotWidget() {
 
             {/* Progress */}
             <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <div className="progress-bar" style={{ flex: 1 }}>
+              <div className="progress-bar" style={{ flex: 1, background: "rgba(0, 0, 0, 0.05)", height: 6, borderRadius: 3, overflow: "hidden" }}>
                 <div className="progress-fill" style={{ width: `${showWA ? 100 : progress}%` }} />
               </div>
               <span style={{ fontSize: 11, opacity: 0.7, fontFamily: "Inter, sans-serif", whiteSpace: "nowrap" }}>
@@ -115,8 +116,9 @@ export default function ChatbotWidget() {
                 <div style={{ marginBottom: 20 }}>
                   <div
                     style={{
-                      background: "var(--green-50)",
-                      border: "1px solid var(--green-100)",
+                      background: "var(--bg)",
+                      border: "1px solid rgba(255, 255, 255, 0.4)",
+                      boxShadow: "var(--shadow-neu-sunken-sm)",
                       borderRadius: "16px 16px 16px 4px",
                       padding: "14px 16px",
                       marginBottom: 12,
@@ -131,8 +133,9 @@ export default function ChatbotWidget() {
                   </div>
                   <div
                     style={{
-                      background: "white",
-                      border: "1px solid var(--green-100)",
+                      background: "var(--bg)",
+                      border: "1px solid rgba(255, 255, 255, 0.4)",
+                      boxShadow: "var(--shadow-neu-raised-sm)",
                       borderRadius: "16px 16px 16px 4px",
                       padding: "12px 16px",
                     }}
@@ -153,9 +156,10 @@ export default function ChatbotWidget() {
                         style={{
                           padding: "10px 16px",
                           borderRadius: 10,
-                          border: inputValue === opt ? "2px solid var(--primary)" : "1px solid var(--green-200)",
-                          background: inputValue === opt ? "var(--green-50)" : "white",
-                          color: inputValue === opt ? "var(--primary)" : "var(--text-dark)",
+                          border: "1px solid rgba(255, 255, 255, 0.5)",
+                          background: "var(--bg)",
+                          boxShadow: inputValue === opt ? "var(--shadow-neu-sunken-sm)" : "var(--shadow-neu-raised-sm)",
+                          color: "var(--text-dark)",
                           fontSize: 14,
                           fontFamily: "Inter, sans-serif",
                           cursor: "pointer",
@@ -166,7 +170,7 @@ export default function ChatbotWidget() {
                           justifyContent: "space-between",
                         }}
                       >
-                        {opt} <ChevronRight size={14} />
+                        {opt} <ChevronRight size={14} color="var(--primary)" />
                       </button>
                     ))}
                   </div>
@@ -186,9 +190,10 @@ export default function ChatbotWidget() {
                       disabled={!inputValue}
                       style={{
                         padding: "13px 16px",
-                        background: inputValue ? "var(--primary)" : "var(--green-100)",
-                        color: inputValue ? "white" : "var(--text-muted)",
-                        border: "none",
+                        background: "var(--bg)",
+                        border: "1px solid rgba(255, 255, 255, 0.5)",
+                        boxShadow: inputValue ? "var(--shadow-neu-raised-sm)" : "none",
+                        color: inputValue ? "var(--primary)" : "var(--text-muted)",
                         borderRadius: 12,
                         cursor: inputValue ? "pointer" : "not-allowed",
                         transition: "all 0.2s",
@@ -256,9 +261,15 @@ export default function ChatbotWidget() {
         id="chatbot-toggle-btn"
         onClick={() => setOpen(!open)}
         className="chatbot-bubble"
+        style={{
+          background: "var(--bg)",
+          border: "1px solid rgba(255, 255, 255, 0.5)",
+          boxShadow: open ? "var(--shadow-neu-sunken)" : "var(--shadow-neu-raised)",
+          color: "var(--primary)",
+        }}
         aria-label="Open admissions chat"
       >
-        {open ? <X size={24} color="white" /> : <MessageCircle size={26} color="white" />}
+        {open ? <X size={24} color="var(--primary)" /> : <MessageCircle size={26} color="var(--primary)" />}
       </button>
 
       {/* Tooltip */}
@@ -268,11 +279,11 @@ export default function ChatbotWidget() {
             position: "absolute",
             bottom: 72,
             right: 0,
-            background: "white",
+            background: "var(--bg)",
             borderRadius: 12,
             padding: "10px 16px",
-            boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
-            border: "1px solid var(--green-100)",
+            boxShadow: "var(--shadow-neu-raised-sm)",
+            border: "1px solid rgba(255, 255, 255, 0.5)",
             whiteSpace: "nowrap",
             fontSize: 13,
             fontFamily: "Inter, sans-serif",
@@ -282,7 +293,7 @@ export default function ChatbotWidget() {
           }}
         >
           💬 Need help? Chat with us!
-          <div style={{ position: "absolute", bottom: -6, right: 24, width: 12, height: 12, background: "white", transform: "rotate(45deg)", border: "1px solid var(--green-100)", borderTop: "none", borderLeft: "none" }} />
+          <div style={{ position: "absolute", bottom: -6, right: 24, width: 12, height: 12, background: "var(--bg)", transform: "rotate(45deg)", border: "1px solid rgba(255, 255, 255, 0.5)", borderTop: "none", borderLeft: "none" }} />
         </div>
       )}
     </div>
