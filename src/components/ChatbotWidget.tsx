@@ -16,7 +16,7 @@ const steps = [
     title: "Nice to meet you, {{name}}!",
     subtitle: "We're here to help",
     question: "What are you interested in?",
-    options: ["Quran Classes", "Virtual Madrasa", "K12 Tuition", "Suffa Kids (Preschool)", "Islamic Dars", "Other"],
+    options: ["Madeeha", "Al Autsa", "Madeeha Da'awa College"],
     field: "interest",
   },
   {
@@ -59,10 +59,7 @@ export default function ChatbotWidget() {
     }, 200);
   };
 
-  const waMessage = encodeURIComponent(
-    `Assalamu Alaikum! My name is ${data.name}. I'm interested in ${data.interest}. I'm based in ${data.country || inputValue}. Please guide me about enrolling at Madeeha Academy.`
-  );
-  const waUrl = `https://wa.me/923001234567?text=${waMessage}`;
+  const waUrl = "https://wa.me/919947588621";
 
   return (
     <div className="chatbot-widget">

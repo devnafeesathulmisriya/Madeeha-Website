@@ -4,9 +4,10 @@ import { X, Eye, EyeOff, User, Lock, AlertCircle } from "lucide-react";
 
 interface LoginModalProps {
   onClose: () => void;
+  onRegisterClick: () => void;
 }
 
-export default function LoginModal({ onClose }: LoginModalProps) {
+export default function LoginModal({ onClose, onRegisterClick }: LoginModalProps) {
   const [mode, setMode] = useState<"login" | "forgot">("login");
   const [showPass, setShowPass] = useState(false);
   const [form, setForm] = useState({ username: "", password: "", remember: false });
@@ -264,13 +265,16 @@ export default function LoginModal({ onClose }: LoginModalProps) {
                 }}
               >
                 New to Madeeha?{" "}
-                <a
-                  href="#register-student"
-                  onClick={onClose}
-                  style={{ color: "var(--primary)", fontWeight: 600, textDecoration: "none" }}
+                <button
+                  type="button"
+                  onClick={() => {
+                    onClose();
+                    onRegisterClick();
+                  }}
+                  style={{ background: "none", border: "none", color: "var(--primary)", fontWeight: 600, textDecoration: "none", cursor: "pointer", padding: 0, fontFamily: "Inter, sans-serif" }}
                 >
                   Register Now
-                </a>
+                </button>
               </p>
             </form>
           ) : (

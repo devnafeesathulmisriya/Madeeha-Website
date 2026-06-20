@@ -292,35 +292,6 @@ export default function HeroSection() {
               >
                 Get Started
               </motion.a>
-
-              <motion.a
-                href="#demo"
-                whileHover={{ gap: 18 }}
-                style={{ display: "flex", alignItems: "center", gap: 14, fontSize: 16, fontWeight: 600, color: "var(--text-dark)", textDecoration: "none", transition: "color 0.25s, gap 0.25s" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--primary)")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-dark)")}
-              >
-                <motion.div
-                  whileHover={{ scale: 1.08 }}
-                  style={{
-                    width: 48,
-                    height: 48,
-                    borderRadius: "50%",
-                    background: "var(--bg)",
-                    border: "1px solid rgba(255, 255, 255, 0.5)",
-                    boxShadow: "var(--shadow-neu-raised-sm)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "var(--primary)",
-                    flexShrink: 0,
-                    transition: "all 0.3s",
-                  }}
-                >
-                  <Play size={18} fill="currentColor" style={{ marginLeft: 3 }} />
-                </motion.div>
-                Learn how it works
-              </motion.a>
             </motion.div>
 
             {/* Trust indicators */}
@@ -399,12 +370,6 @@ export default function HeroSection() {
             >
               <a href="#courses" className="btn-primary" style={{ fontSize: 15, padding: "14px 32px" }}>
                 Get Started
-              </a>
-              <a href="#demo" style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 15, fontWeight: 600, color: "var(--text-dark)", textDecoration: "none" }}>
-                <div style={{ width: 44, height: 44, borderRadius: "50%", background: "white", border: "1px solid var(--border)", boxShadow: "0 6px 18px rgba(0,0,0,0.06)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--primary)" }}>
-                  <Play size={17} fill="currentColor" style={{ marginLeft: 3 }} />
-                </div>
-                Learn how
               </a>
             </motion.div>
           </div>

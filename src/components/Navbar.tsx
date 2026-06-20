@@ -14,9 +14,10 @@ import {
 
 interface NavbarProps {
   onLoginClick: () => void;
+  onRegisterClick: () => void;
 }
 
-export default function Navbar({ onLoginClick }: NavbarProps) {
+export default function Navbar({ onLoginClick, onRegisterClick }: NavbarProps) {
   const [scrolled, setScrolled]   = useState(false);
   const [hidden, setHidden]       = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -177,7 +178,7 @@ export default function Navbar({ onLoginClick }: NavbarProps) {
               {/* Portal Login CTA */}
               <motion.a
                 id="student-login-btn"
-                href="https://madeeha-thesweetnessofiman.web.app/"
+                href="https://madeeha-thesweetnessofiman.web.app/login"
                 className="desktop-only btn-primary"
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
@@ -258,10 +259,17 @@ export default function Navbar({ onLoginClick }: NavbarProps) {
                   transition={{ delay: 0.35 }}
                   style={{ marginTop: 20, display: "flex", gap: 12 }}
                 >
-                  <Link href="#register-student" className="btn-outline" style={{ flex: 1, justifyContent: "center", padding: "11px 16px", fontSize: 14 }}>
+                  <button
+                    onClick={() => {
+                      onRegisterClick();
+                      setMobileOpen(false);
+                    }}
+                    className="btn-outline"
+                    style={{ flex: 1, justifyContent: "center", padding: "11px 16px", fontSize: 14, background: "none", cursor: "pointer" }}
+                  >
                     Register Now
-                  </Link>
-                  <a href="https://madeeha-thesweetnessofiman.web.app/" className="btn-primary" style={{ flex: 1, justifyContent: "center", fontSize: 14, textDecoration: "none", display: "flex", alignItems: "center", gap: 8 }}>
+                  </button>
+                  <a href="https://madeeha-thesweetnessofiman.web.app/login" className="btn-primary" style={{ flex: 1, justifyContent: "center", fontSize: 14, textDecoration: "none", display: "flex", alignItems: "center", gap: 8 }}>
                     <User size={15} /> Login
                   </a>
                 </motion.div>

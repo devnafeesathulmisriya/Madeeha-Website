@@ -14,11 +14,19 @@ import NewsletterBanner from "@/components/NewsletterBanner";
 import Footer from "@/components/Footer";
 import ChatbotWidget from "@/components/ChatbotWidget";
 import LoginModal from "@/components/LoginModal";
+import RegisterModal from "@/components/RegisterModal";
 import PagePreloader from "@/components/PagePreloader";
 import CustomCursor from "@/components/CustomCursor";
 
 export default function Home() {
   const [showLogin, setShowLogin] = useState(false);
+  const [showRegister, setShowRegister] = useState(false);
+  const [preselectedCourse, setPreselectedCourse] = useState("");
+
+  const handleRegisterClick = (courseTitle: string = "") => {
+    setPreselectedCourse(courseTitle);
+    setShowRegister(true);
+  };
 
   return (
     <>
@@ -28,11 +36,11 @@ export default function Home() {
       {/* Custom lerp cursor (desktop only) */}
       <CustomCursor />
 
-      <Navbar onLoginClick={() => setShowLogin(true)} />
+      <Navbar onLoginClick={() => setShowLogin(true)} onRegisterClick={() => handleRegisterClick()} />
       <main>
         <HeroSection />
         <WhatYouWillLearn />
-        <FeaturedCourses />
+        <FeaturedCourses onRegisterClick={handleRegisterClick} />
         <WhyChooseUs />
         <AppShowcase />
         <CEOMessage />
@@ -41,9 +49,10 @@ export default function Home() {
         <Gallery />
         <NewsletterBanner />
       </main>
-      <Footer />
+      <Footer onRegisterClick={() => handleRegisterClick()} />
       <ChatbotWidget />
-      {showLogin && <LoginModal onClose={() => setShowLogin(false)} />}
+      {showLogin && <LoginModal onClose={() => setShowLogin(false)} onRegisterClick={() => handleRegisterClick()} />}
+      {showRegister && <RegisterModal onClose={() => setShowRegister(false)} defaultCourse={preselectedCourse} />}
     </>
   );
 }

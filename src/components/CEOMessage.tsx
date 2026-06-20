@@ -17,10 +17,10 @@ const lineVariants = {
 
 export default function CEOMessage() {
   const sectionRef = useRef<HTMLElement>(null);
-  const textRef    = useRef<HTMLDivElement>(null);
-  const photoRef   = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const photoRef = useRef<HTMLDivElement>(null);
 
-  const textInView  = useInView(textRef,  { once: true, margin: "-80px" });
+  const textInView = useInView(textRef, { once: true, margin: "-80px" });
   const photoInView = useInView(photoRef, { once: true, margin: "-80px" });
 
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
@@ -266,14 +266,7 @@ export default function CEOMessage() {
               >
                 Start Learning Today
               </motion.a>
-              <motion.a
-                href="#about-full"
-                className="btn-outline"
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                Read Full Story
-              </motion.a>
+
             </motion.div>
 
             {/* Signature */}

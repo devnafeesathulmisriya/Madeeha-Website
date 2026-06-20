@@ -48,7 +48,11 @@ const courses: Course[] = [
   }
 ];
 
-export default function FeaturedCourses() {
+interface FeaturedCoursesProps {
+  onRegisterClick: (courseTitle: string) => void;
+}
+
+export default function FeaturedCourses({ onRegisterClick }: FeaturedCoursesProps) {
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
 
   return (
@@ -190,7 +194,14 @@ export default function FeaturedCourses() {
               </div>
             </div>
 
-            <button className="btn-primary" style={{ width: "100%", padding: "14px", justifyContent: "center", fontSize: 15, borderRadius: "50px" }}>
+            <button
+              onClick={() => {
+                onRegisterClick(selectedCourse.title);
+                setSelectedCourse(null);
+              }}
+              className="btn-primary"
+              style={{ width: "100%", padding: "14px", justifyContent: "center", fontSize: 15, borderRadius: "50px", cursor: "pointer" }}
+            >
               Enroll Now
             </button>
           </div>

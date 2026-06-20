@@ -1,15 +1,36 @@
 "use client";
 import { useState } from "react";
 import { Mail, ArrowRight, Sparkles } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 export default function NewsletterBanner() {
   const [mobile, setMobile] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (mobile) {
+    if (!mobile) return;
+    
+    setIsSubmitting(true);
+    try {
+      if (!supabase) {
+        console.error("Supabase client not initialized.");
+        setSubmitted(true);
+        return;
+      }
+      
+      const { error } = await supabase.from("mobile_enquiries").insert([{ mobile }]);
+      
+      if (error) throw error;
+      
       setSubmitted(true);
+    } catch (err) {
+      console.error("Error submitting mobile enquiry:", err);
+      // Fallback to submitted state to not block the user UI
+      setSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -138,11 +159,13 @@ export default function NewsletterBanner() {
               type="submit"
               id="newsletter-submit"
               className="btn-ghost"
+              disabled={isSubmitting}
               style={{
                 padding: "0 32px",
                 height: 54,
                 borderRadius: "50px",
-                cursor: "pointer",
+                cursor: isSubmitting ? "not-allowed" : "pointer",
+                opacity: isSubmitting ? 0.75 : 1,
                 display: "flex",
                 alignItems: "center",
                 gap: 8,
@@ -153,7 +176,7 @@ export default function NewsletterBanner() {
                 boxShadow: "var(--shadow-dark-neu-raised-sm)",
               }}
             >
-              Submit <ArrowRight size={16} />
+              {isSubmitting ? "Submitting..." : "Submit"} <ArrowRight size={16} />
             </button>
           </form>
         ) : (
