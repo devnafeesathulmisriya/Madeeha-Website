@@ -45,9 +45,12 @@ function SocialIcon({ type }: { type: string }) {
 
 interface FooterProps {
   onRegisterClick: () => void;
+  onTermsClick: () => void;
+  onPrivacyClick: () => void;
+  onCookieClick: () => void;
 }
 
-export default function Footer({ onRegisterClick }: FooterProps) {
+export default function Footer({ onRegisterClick, onTermsClick, onPrivacyClick, onCookieClick }: FooterProps) {
   return (
     <footer id="contact" style={{ background: "var(--bg-dark)", color: "white", position: "relative", overflow: "hidden" }}>
       {/* Pattern */}
@@ -140,9 +143,14 @@ export default function Footer({ onRegisterClick }: FooterProps) {
               <ul style={{ listStyle: "none" }}>
                 {links.map((link) => (
                   <li key={link.label} style={{ marginBottom: 10 }}>
-                    {link.label === "Register Now" ? (
+                    {link.label === "Register Now" || link.label === "Terms of Service" || link.label === "Privacy Policy" || link.label === "Cookie Policy" ? (
                       <button
-                        onClick={onRegisterClick}
+                        onClick={() => {
+                          if (link.label === "Register Now") onRegisterClick();
+                          if (link.label === "Terms of Service") onTermsClick();
+                          if (link.label === "Privacy Policy") onPrivacyClick();
+                          if (link.label === "Cookie Policy") onCookieClick();
+                        }}
                         style={{
                           fontSize: 14,
                           color: "rgba(255,255,255,0.55)",
