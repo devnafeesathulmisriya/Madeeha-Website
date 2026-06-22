@@ -299,6 +299,123 @@ export default function CEOMessage() {
           </motion.div>
 
         </div>
+
+        {/* Coordinators Grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          style={{
+            marginTop: 80,
+            paddingTop: 48,
+            borderTop: "1px solid rgba(30, 122, 74, 0.1)",
+          }}
+        >
+          <div className="ornament" style={{ display: "flex", justifyContent: "center", marginBottom: 12 }}>
+            <span style={{ color: "var(--primary)", fontSize: 18 }}>✦</span>
+          </div>
+          <div className="section-tag" style={{ margin: "0 auto 16px", display: "flex", justifyContent: "center", width: "max-content", gap: 6 }}>
+            <Award size={13} /> Our Team
+          </div>
+          <h3 className="section-title" style={{ textAlign: "center", fontSize: 32, marginBottom: 40 }}>
+            Our Beloved <span>Coordinators</span>
+          </h3>
+
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
+            gap: 28,
+            maxWidth: 1000,
+            margin: "0 auto",
+            padding: "10px 0"
+          }}>
+            {[
+              { name: "Sheeba Muhammad Misriyya Mueena", role: "Coordinator" },
+              { name: "Mubashira Falila Misriyya", role: "Coordinator" },
+              { name: "Ummu Habeeba Falila Misriyya", role: "Coordinator" }
+            ].map((coordinator, idx) => (
+              <motion.div
+                key={coordinator.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.15 }}
+                className="card"
+                style={{
+                  padding: "32px 24px",
+                  borderRadius: 24,
+                  border: "1px solid rgba(255, 255, 255, 0.4)",
+                  background: "var(--bg)",
+                  boxShadow: "var(--shadow-neu-raised)",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  textAlign: "center",
+                  position: "relative",
+                  overflow: "hidden"
+                }}
+                whileHover={{ y: -6, boxShadow: "6px 6px 16px #cbd5cf, -6px -6px 16px #ffffff" }}
+              >
+                {/* Decorative background shape */}
+                <div style={{
+                  position: "absolute",
+                  top: "-40px",
+                  right: "-40px",
+                  width: 90,
+                  height: 90,
+                  borderRadius: "50%",
+                  background: "radial-gradient(circle, rgba(30,122,74,0.04) 0%, transparent 70%)",
+                  zIndex: 0
+                }} />
+
+                {/* Elegant initials/profile circle */}
+                <div style={{
+                  width: 72,
+                  height: 72,
+                  borderRadius: "50%",
+                  background: "var(--bg)",
+                  border: "1px solid rgba(201, 168, 76, 0.3)",
+                  boxShadow: "var(--shadow-neu-sunken-sm)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: 28,
+                  marginBottom: 18,
+                  zIndex: 1,
+                  position: "relative"
+                }}>
+                  <span style={{ color: "var(--primary)", fontFamily: "var(--font-serif)" }}>🧕</span>
+                </div>
+
+                <div style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: 16.5,
+                  fontWeight: 700,
+                  color: "var(--text-dark)",
+                  lineHeight: 1.4,
+                  marginBottom: 6,
+                  zIndex: 1
+                }}>
+                  {coordinator.name}
+                </div>
+
+                <div style={{
+                  fontFamily: "var(--font-sans)",
+                  fontSize: 12.5,
+                  color: "var(--primary)",
+                  fontWeight: 600,
+                  letterSpacing: 1,
+                  textTransform: "uppercase",
+                  zIndex: 1
+                }}>
+                  {coordinator.role}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
       </div>
 
       <style>{`

@@ -27,7 +27,7 @@ const courses: Course[] = [
     image: "/course-quran.png"
   },
   {
-    title: "Al Autsa",
+    title: "الغوثة",
     subtitle: "",
     duration: "6 Months",
     eligibility: "Women",
@@ -35,7 +35,7 @@ const courses: Course[] = [
     mode: "Online",
     lecturer: "Jasir Ahsani Gujrath",
     special: "Free Entry",
-    image: "/course-madrasa.png"
+    image: "/alautsa.jpeg"
   },
   {
     title: "Madeeha Da'awa College",
