@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Madeeha Academy | The Sweetness of Iman – Online Islamic Education for Women",
+  title: "Madeeha Womens Virtual Academy | The Sweetness of Iman – Online Islamic Education for Women",
   description:
-    "Join Madeeha Academy for live, interactive online Islamic education. Courses in Quran, Madrasa, K12 Tuition, Islamic Dars, and Preschool designed for women and children worldwide.",
+    "Join Madeeha Academy for live, interactive online Islamic education. Courses in Madh un Nabi, Madrasa and Islamic Dars designed for women worldwide.",
   keywords:
-    "Islamic education women, online Quran classes, virtual madrasa, Islamic studies online, Quran for women, Islamic school GCC UAE, Madeeha Academy",
+    "Islamic education women, online Quran classes, virtual madrasa, Islamic studies online, Quran for women, Islamic school , Madeeha Academy",
   openGraph: {
-    title: "Madeeha Academy | The Sweetness of Iman",
+    title: "Madeeha Womens Virtual Academy | The Sweetness of Iman",
     description:
-      "Live interactive Islamic education for women and children across the globe.",
+      "Live interactive Islamic education for women  across the globe.",
     type: "website",
     images: ["/logo.jpg"],
   },
