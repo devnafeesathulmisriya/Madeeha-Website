@@ -45,9 +45,9 @@ function SocialIcon({ type }: { type: string }) {
 
 interface FooterProps {
   onRegisterClick: () => void;
-  onTermsClick: () => void;
-  onPrivacyClick: () => void;
-  onCookieClick: () => void;
+  onTermsClick?: () => void;
+  onPrivacyClick?: () => void;
+  onCookieClick?: () => void;
 }
 
 export default function Footer({ onRegisterClick, onTermsClick, onPrivacyClick, onCookieClick }: FooterProps) {
@@ -147,9 +147,9 @@ export default function Footer({ onRegisterClick, onTermsClick, onPrivacyClick, 
                       <button
                         onClick={() => {
                           if (link.label === "Register Now") onRegisterClick();
-                          if (link.label === "Terms of Service") onTermsClick();
-                          if (link.label === "Privacy Policy") onPrivacyClick();
-                          if (link.label === "Cookie Policy") onCookieClick();
+                          if (link.label === "Terms of Service") onTermsClick?.();
+                          if (link.label === "Privacy Policy") onPrivacyClick?.();
+                          if (link.label === "Cookie Policy") onCookieClick?.();
                         }}
                         style={{
                           fontSize: 14,
