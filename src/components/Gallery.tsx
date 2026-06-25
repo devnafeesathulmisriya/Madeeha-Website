@@ -8,8 +8,10 @@ const galleryItems = [
   { id: 4, title: "Student Achievement", media: "/Gallery/gallery4.jpeg", height: 320, type: "image" },
   { id: 5, title: "Graduation Ceremony", media: "/Gallery/gallery5.jpeg", height: 260, type: "image" },
   { id: 6, title: "Quran Recitation", media: "/Gallery/gallery6.jpeg", height: 200, type: "image" },
-  { id: 7, title: "Campus Life", media: "/Gallery/gallery1.jpeg", height: 300, type: "image" },
-  { id: 8, title: "Group Studies", media: "/Gallery/gallery3.jpeg", height: 280, type: "image" },
+  { id: 7, title: "Annual Day Celebrations", media: "/Gallery/Gallery8 (1).jpeg", height: 300, type: "image" },
+  { id: 8, title: "Campus Activities", media: "/Gallery/Gallery8 (2).jpeg", height: 280, type: "image" },
+  { id: 9, title: "Special Seminars", media: "/Gallery/Gallery8 (3).jpeg", height: 240, type: "image" },
+  { id: 10, title: "Campus Tour Video", media: "/gallery7.mp4", height: 320, type: "video" },
 ];
 
 export default function Gallery() {
